@@ -11,7 +11,7 @@ function generateToken(user) {
       username: user.username,
       expenses: user.expenses,
     },
-    SECRET_KEY,
+    "8Zz5tw0Ionm3XPZZfN0NOml3z9FMfmpgXwovR9fp6ryDIoGRM8EPHAB6iHsc0fb",
     { expiresIn: "1h" }
   );
 }
