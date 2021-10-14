@@ -6,6 +6,7 @@ const ExpenseSchema = new Schema(
     name: String,
     cost: Number,
     type: String,
+    id: String, 
     createdAt: String,
   },
   {

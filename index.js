@@ -17,7 +17,7 @@ app.use(express.json());
 
 //routes
 app.use("/api/users", require("./server/routes/users.routes"));
-app.use("api/expenses", require("./server/routes/expenses.routes"));
+app.use("/api/expenses", require("./server/routes/expenses.routes"));
 
 //starting server
 app.listen(port, () => {
