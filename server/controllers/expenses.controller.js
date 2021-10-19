@@ -17,7 +17,7 @@ expenseCtrl.addExpense = async (req, res) => {
     { new: true, useFindAndModify: false }
   );
   await User.findById(req.params.id).populate("expenses");
-  res.send("Expense added");
+  res.send(newExpense);
 };
 expenseCtrl.getAllExpenses = async (req, res) => {
   const expenses = await Expense.find();
@@ -26,7 +26,19 @@ expenseCtrl.getAllExpenses = async (req, res) => {
 
 expenseCtrl.getExpenses = async (req, res) => {
   const watcher = await User.findById(req.params.id).populate("expenses");
-  res.json(watcher.expenses);
+  expenses = await watcher.expenses;
+  response = [];
+  for (let index = 0; index < expenses.length; index++) {
+    const element = {
+      id: index,
+      name: expenses[index].name,
+      cost:  expenses[index].cost,
+      userID: req.params.id,
+      _id:  expenses[index]._id,
+    };
+    response[index] = element;
+  }
+  res.json(response);
 };
 
 expenseCtrl.updateExpense = async (req, res) => {
