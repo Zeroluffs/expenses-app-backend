@@ -3,10 +3,11 @@ const { Schema } = mongoose;
 
 const ExpenseSchema = new Schema(
   {
+    id: Number,
     name: String,
     cost: Number,
     type: String,
-    id: String, 
+    userID: String,
     createdAt: String,
   },
   {
