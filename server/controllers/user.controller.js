@@ -30,6 +30,7 @@ userCtrl.registerUser = async (req, res) => {
   const newUser = new User({
     username: req.body.username,
     password: hashedPassword,
+    budget: req.body.budget,
     createdAt: new Date().toISOString(),
   });
 
