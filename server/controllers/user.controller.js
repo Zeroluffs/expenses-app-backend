@@ -41,6 +41,7 @@ userCtrl.registerUser = async (req, res) => {
       username: resUser.username,
       createdAt: resUser.createdAt,
       expenses: resUser.expenses,
+      budget: resUser.budget,
     },
     token: token,
   });
@@ -66,7 +67,7 @@ userCtrl.login = async (req, res) => {
       username: user.username,
       email: user.email,
       createdAt: user.createdAt,
-      games: user.games,
+      budget: user.budget,
     },
     token: token,
   });

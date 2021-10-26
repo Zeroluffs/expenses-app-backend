@@ -6,7 +6,7 @@ const UserSchema = new Schema(
     username: { type: String, unique: true, required: true, dropDups: true },
     password: String,
     createdAt: String,
-    earnings: Number,
+    budget: Number,
     expenses: [
       {
         type: Schema.Types.ObjectId,
