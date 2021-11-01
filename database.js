@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
-const URI = "mongodb://localhost/expensesAPP";
-// require("dotenv").config({ path: "variables.env" });
+require("dotenv").config({ path: "variables.env" });
 mongoose
-  .connect(URI, {
+  .connect(process.env.DB_UR, {
     // auth: {
     //   user: "root",
     //   password: "root",

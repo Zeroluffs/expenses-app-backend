@@ -42,17 +42,6 @@ expenseCtrl.getAllExpenses = async (req, res) => {
 expenseCtrl.getExpenses = async (req, res) => {
   const watcher = await User.findById(req.params.id).populate("expenses");
   var expenses = await watcher.expenses;
-  // response = [];
-  // for (let index = 0; index < expenses.length; index++) {
-  //   const element = {
-  //     id: index,
-  //     name: expenses[index].name,
-  //     cost: expenses[index].cost,
-  //     userID: req.params.id,
-  //     _id: expenses[index]._id,
-  //   };
-  //   response[index] = element;
-  // }
   res.json(expenses);
 };
 
@@ -79,7 +68,7 @@ expenseCtrl.deleteExpense = async (req, res) => {
     { $pull: { expenses: req.params.expenseID } },
     { new: true }
   );
-  res.send("expense deleted");
+  res.send(req.params.expenseID);
 };
 
 module.exports = expenseCtrl;
