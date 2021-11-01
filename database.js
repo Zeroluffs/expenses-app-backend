@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 require("dotenv").config({ path: "variables.env" });
 mongoose
-  .connect(process.env.DB_UR, {
+  .connect(process.env.DB_URL, {
     // auth: {
     //   user: "root",
     //   password: "root",
