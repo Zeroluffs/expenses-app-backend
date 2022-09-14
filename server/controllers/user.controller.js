@@ -31,7 +31,7 @@ userCtrl.registerUser = async (req, res) => {
   const newUser = new User({
     username: req.body.username,
     password: hashedPassword,
-    budget: req.body.budget,
+    budget: 0,
     createdAt: new Date().toISOString(),
   });
 
@@ -72,6 +72,18 @@ userCtrl.login = async (req, res) => {
       budget: user.budget,
     },
     token: token,
+  });
+};
+
+userCtrl.updateBudget = async (req, res) => {
+  await User.findByIdAndUpdate(
+    req.params.userID,
+    { $set: { budget: req.body.budget } },
+    { new: true }
+  );
+
+  res.json({
+    status: "Budget Updated",
   });
 };
 
