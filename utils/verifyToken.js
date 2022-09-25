@@ -5,6 +5,8 @@ const verifyToken = (req, res, next) => {
     const bearerToken = token.split(" ")[1];
     req.token = bearerToken;
     next();
+  } else {
+    res.status(500).send({ error: "Invalid token" });
   }
 };
 module.exports = verifyToken;
